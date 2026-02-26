@@ -3,14 +3,15 @@ import { motion } from 'framer-motion';
 
 export function Telemetry() {
     return (
-        <div style={{ width: '100vw', height: '100vh', background: '#030303', color: '#fff', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+        <div className="page-container" style={{ width: '100vw', height: '100vh', background: '#030303', color: '#fff', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
             <motion.div
                 initial={{ opacity: 0, scale: 0.9, filter: 'blur(10px)' }}
                 animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
+                className="panel-container"
                 style={{ width: '80%', height: '70%', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', padding: '40px', display: 'flex', flexDirection: 'column' }}
             >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
+                <div className="panel-flex-col" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
                     <div>
                         <div style={{ fontSize: '1rem', color: '#ff2800', letterSpacing: '4px', fontWeight: 700, marginBottom: '10px' }}>SYSTEM 03</div>
                         <h1 style={{ fontSize: '3rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-1px', margin: 0 }}>LIVE TELEMETRY</h1>
@@ -21,7 +22,7 @@ export function Telemetry() {
                     </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '30px', flex: 1 }}>
+                <div className="panel-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '30px', flex: 1 }}>
                     <div style={{ background: '#080808', borderRadius: '15px', padding: '30px', display: 'flex', flexDirection: 'column', gap: '30px', border: '1px solid rgba(255,255,255,0.05)' }}>
                         <div>
                             <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.4)', letterSpacing: '1px' }}>TYRE TEMP AVG</div>

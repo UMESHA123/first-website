@@ -191,3 +191,87 @@ body,
   font-size: 0.9rem;
   letter-spacing: 1px;
 }
+
+/* ------------------------------------
+  Responsive Mobile Adjustments
+------------------------------------ */
+@media (max-width: 768px) {
+
+  /* Navbar adjustments */
+  .navbar {
+    padding: 15px 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .nav-brand {
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    font-size: 0.7rem;
+  }
+
+  .nav-btn {
+    margin-top: 5px;
+    padding: 8px 16px;
+    font-size: 0.7rem;
+  }
+
+  /* Utility classes mapped from inline styles */
+  .hero-container {
+    left: 5% !important;
+  }
+
+  .hero-title {
+    font-size: 3.5rem !important;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem !important;
+  }
+
+  .panel-container {
+    width: 90vw !important;
+    left: 5vw !important;
+    right: 5vw !important;
+    padding: 20px !important;
+  }
+
+  .panel-title {
+    font-size: 2.5rem !important;
+  }
+
+  .panel-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .panel-flex-col {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  .panel-hide-mobile {
+    display: none !important;
+  }
+
+  .page-container {
+    padding: 80px 20px 20px !important;
+    height: auto !important;
+    min-height: 100vh;
+    overflow-y: auto !important;
+  }
+
+  .page-title {
+    font-size: 3.5rem !important;
+  }
+}
