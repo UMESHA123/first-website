@@ -1,34 +1,34 @@
-import React, { useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+
+const MotionDiv = motion.div;
 
 export function Overlay({ progress, active }) {
-    return (
-        <>
-            <AnimatePresence>
-                {active && (
-                    <motion.div
-                        initial={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 1.5, ease: "easeInOut" }}
-                        className="loading-screen"
-                    >
-                        <div className="loading-content">
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.5 }}
-                            >
-                                <h2>ENGINE BOOT SEQUENCE</h2>
-                                <div className="progress-container">
-                                    <div className="progress-bar" style={{ width: `${progress}%` }} />
-                                </div>
-                                <div className="percentage">{progress.toFixed(0)}%</div>
-                            </motion.div>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+  return (
+    <AnimatePresence>
+      {active && (
+        <MotionDiv
+          className="loading-screen"
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, ease: 'easeInOut' }}
+        >
+          <MotionDiv
+            className="loading-content"
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <p className="loading-kicker">Garage Link Online</p>
+            <h2>Initializing RB16 Digital Twin</h2>
 
-        </>
-    );
+            <div className="progress-container">
+              <div className="progress-bar" style={{ width: `${progress}%` }} />
+            </div>
+
+            <div className="percentage">{progress.toFixed(0)}%</div>
+          </MotionDiv>
+        </MotionDiv>
+      )}
+    </AnimatePresence>
+  );
 }

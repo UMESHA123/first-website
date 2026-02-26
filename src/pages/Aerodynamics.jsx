@@ -1,37 +1,48 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
+const MotionDiv = motion.div;
+
+const aeroStats = [
+  { label: 'Front Wing Load', value: '240kg' },
+  { label: 'Drag Reduction', value: 'DRS Active' },
+  { label: 'Floor Spec', value: 'v3.2' },
+];
+
 export function Aerodynamics() {
-    return (
-        <div className="page-container" style={{ width: '100vw', height: '100vh', background: '#030303', color: '#fff', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-            <motion.div
-                initial={{ opacity: 0, y: 50, filter: 'blur(10px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                style={{ maxWidth: '800px', padding: '40px', textAlign: 'center' }}
-            >
-                <div style={{ fontSize: '1rem', color: '#ff0033', letterSpacing: '4px', fontWeight: 700, marginBottom: '20px' }}>SYSTEM 01</div>
-                <h1 className="page-title" style={{ fontSize: '6rem', fontWeight: 900, textTransform: 'uppercase', lineHeight: 0.9, marginBottom: '40px', letterSpacing: '-2px' }}>AERO<span style={{ color: 'transparent', WebkitTextStroke: '2px #fff' }}>DYNAMICS</span></h1>
+  return (
+    <main className="page-container info-page">
+      <MotionDiv
+        className="info-shell glass-panel"
+        initial={{ opacity: 0, y: 32, filter: 'blur(10px)' }}
+        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        <p className="panel-tag">System 01</p>
+        <h1 className="page-title">Aero Dynamics</h1>
+        <p className="page-subtitle">
+          Airflow is shaped from front wing to diffuser to keep the car stable through high-speed load changes and aggressive braking zones.
+        </p>
 
-                <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, marginBottom: '60px', maxWidth: '600px', margin: '0 auto 60px' }}>
-                    The airflow over the chassis is manipulated with surgical precision, guaranteeing the minimum possible drag coefficient while maximizing downforce generation across all speeds.
-                </p>
+        <section className="info-grid three-col">
+          {aeroStats.map((item) => (
+            <article key={item.label} className="info-card">
+              <h3>{item.value}</h3>
+              <p>{item.label}</p>
+            </article>
+          ))}
+        </section>
 
-                <div className="panel-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '20px' }}>
-                    <div style={{ background: 'rgba(255,255,255,0.03)', padding: '30px', borderRadius: '15px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                        <div style={{ fontSize: '3rem', fontWeight: 900 }}>240<span style={{ fontSize: '1.5rem', opacity: 0.5 }}>kg</span></div>
-                        <div style={{ fontSize: '0.8rem', opacity: 0.6, letterSpacing: '1px', marginTop: '10px' }}>FRONT WING DOWNFORCE</div>
-                    </div>
-                    <div style={{ background: 'rgba(255,255,255,0.03)', padding: '30px', borderRadius: '15px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                        <div style={{ fontSize: '3rem', fontWeight: 900 }}>v3.2</div>
-                        <div style={{ fontSize: '0.8rem', opacity: 0.6, letterSpacing: '1px', marginTop: '10px' }}>FLOOR SPECIFICATION</div>
-                    </div>
-                    <div style={{ background: 'rgba(255,255,255,0.03)', padding: '30px', borderRadius: '15px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                        <div style={{ fontSize: '3rem', fontWeight: 900, color: '#ff0033' }}>DRS</div>
-                        <div style={{ fontSize: '0.8rem', opacity: 0.6, letterSpacing: '1px', marginTop: '10px' }}>DRAG REDUCTION SYSTEM</div>
-                    </div>
-                </div>
-            </motion.div>
-        </div>
-    );
+        <section className="split-row">
+          <article className="glass-inset">
+            <h4>Wind-Tunnel Objective</h4>
+            <p>Preserve rear grip under yaw while reducing straight-line drag for improved overtaking windows.</p>
+          </article>
+          <article className="glass-inset">
+            <h4>Trackside Adjustment</h4>
+            <p>Flap and floor-edge trim updates allow setup balancing between qualifying one-lap pace and race consistency.</p>
+          </article>
+        </section>
+      </MotionDiv>
+    </main>
+  );
 }

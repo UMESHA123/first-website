@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
@@ -12,11 +11,12 @@ function App() {
   const location = useLocation();
 
   return (
-    <div style={{ width: '100vw', height: '100vh', overflow: 'hidden', background: '#030303' }}>
-      {/* Global Navigation Bar */}
+    <div className="app-shell">
+      <div className="ambient-noise" />
+      <div className="radial-backdrop" />
+
       <Navbar />
 
-      {/* Route Handling with AnimatePresence for smooth transitions */}
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Showroom />} />
